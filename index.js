@@ -16,6 +16,10 @@ app.use(express.json());
 app.use('/api/projects', require('./routes/Projects'));
 app.use('/api/contact', require('./routes/contact'));
 
+app.get('/', (req, res) => {
+   res.send('Backend Running');
+});
+
 const PORT = process.env.PORT || 8000;
 
 console.log(process.env.MONGO_URI);
