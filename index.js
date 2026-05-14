@@ -8,12 +8,12 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://portfolio-client-one-zeta.vercel.app'  // apna Vercel URL daalo
+    'https://portfolio-client-one-zeta.vercel.app'  // Vercel URL 
   ]
 }))
 app.use(express.json());
 
-app.use('/api/projects', require('./routes/projects'));
+app.use('/api/projects', require('./routes/Projects'));
 app.use('/api/contact', require('./routes/contact'));
 
 const PORT = process.env.PORT || 8000;
