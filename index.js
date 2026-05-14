@@ -5,7 +5,12 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://portfolio-client-one-zeta.vercel.app'  // apna Vercel URL daalo
+  ]
+}))
 app.use(express.json());
 
 app.use('/api/projects', require('./routes/projects'));
