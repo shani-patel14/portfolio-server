@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api/projects', require('./routes/Projects'));
+app.use('/api/projects', require('./routes/projects'));
 app.use('/api/contact', require('./routes/contact'));
 
 const PORT = process.env.PORT || 5000;
