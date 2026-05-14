@@ -1,22 +1,13 @@
-const router = require('express').Router();
-const nodemailer = require('nodemailer'); // npm install nodemailer
+const router = require('express').Router()
 
 router.post('/', async (req, res) => {
-  const { name, email, message } = req.body;
+  try {
+    const { name, email, subject, message } = req.body
+    console.log('Message received:', { name, email, subject, message })
+    res.json({ success: true, message: 'Message received!' })
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: { user: process.env.EMAIL, pass: process.env.EMAIL_PASS }
-  });
-
-  await transporter.sendMail({
-    from: email,
-    to: process.env.EMAIL,
-    subject: `Portfolio message from ${name}`,
-    text: message
-  });
-
-  res.json({ success: true });
-});
-
-module.exports = router;
+module.exports = router
